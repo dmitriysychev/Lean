@@ -22,7 +22,6 @@ import QuantConnect.Data
 import QuantConnect.Brokerages
 import QuantConnect.Benchmarks
 import QuantConnect.Api
-import QuantConnect.API
 import QuantConnect
 import Python.Runtime
 import NodaTime
@@ -50,7 +49,7 @@ class IApi(System.IDisposable):
     def CreateCompile(self, projectId: int) -> QuantConnect.Api.Compile:
         pass
 
-    def CreateLiveAlgorithm(self, projectId: int, compileId: str, serverType: str, baseLiveAlgorithmSettings: QuantConnect.API.BaseLiveAlgorithmSettings, versionId: str) -> QuantConnect.API.LiveAlgorithm:
+    def CreateLiveAlgorithm(self, projectId: int, compileId: str, serverType: str, baseLiveAlgorithmSettings: QuantConnect.Api.BaseLiveAlgorithmSettings, versionId: str) -> QuantConnect.Api.LiveAlgorithm:
         pass
 
     def CreateProject(self, name: str, language: QuantConnect.Language) -> QuantConnect.Api.ProjectResponse:
@@ -89,7 +88,7 @@ class IApi(System.IDisposable):
     def ListBacktests(self, projectId: int) -> QuantConnect.Api.BacktestList:
         pass
 
-    def ListLiveAlgorithms(self, status: typing.Optional[QuantConnect.AlgorithmStatus], startTime: typing.Optional[datetime.datetime], endTime: typing.Optional[datetime.datetime]) -> QuantConnect.API.LiveList:
+    def ListLiveAlgorithms(self, status: typing.Optional[QuantConnect.AlgorithmStatus], startTime: typing.Optional[datetime.datetime], endTime: typing.Optional[datetime.datetime]) -> QuantConnect.Api.LiveList:
         pass
 
     def ListProjects(self) -> QuantConnect.Api.ProjectResponse:
@@ -104,13 +103,13 @@ class IApi(System.IDisposable):
     def ReadDataLink(self, symbol: QuantConnect.Symbol, resolution: QuantConnect.Resolution, date: datetime.datetime) -> QuantConnect.Api.Link:
         pass
 
-    def ReadLiveAlgorithm(self, projectId: int, deployId: str) -> QuantConnect.API.LiveAlgorithmResults:
+    def ReadLiveAlgorithm(self, projectId: int, deployId: str) -> QuantConnect.Api.LiveAlgorithmResults:
         pass
 
-    def ReadLiveLogs(self, projectId: int, algorithmId: str, startTime: typing.Optional[datetime.datetime], endTime: typing.Optional[datetime.datetime]) -> QuantConnect.API.LiveLog:
+    def ReadLiveLogs(self, projectId: int, algorithmId: str, startTime: typing.Optional[datetime.datetime], endTime: typing.Optional[datetime.datetime]) -> QuantConnect.Api.LiveLog:
         pass
 
-    def ReadPrices(self, symbols: typing.List[QuantConnect.Symbol]) -> QuantConnect.API.PricesList:
+    def ReadPrices(self, symbols: typing.List[QuantConnect.Symbol]) -> QuantConnect.Api.PricesList:
         pass
 
     def ReadProject(self, projectId: int) -> QuantConnect.Api.ProjectResponse:
@@ -187,6 +186,8 @@ class IBrokerage(System.IDisposable, QuantConnect.Interfaces.IBrokerageCashSynch
 
     def UpdateOrder(self, order: QuantConnect.Orders.Order) -> bool:
         pass
+
+    AccountBaseCurrency: str
 
     AccountInstantlyUpdated: bool
 

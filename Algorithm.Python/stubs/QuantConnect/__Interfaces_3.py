@@ -21,7 +21,6 @@ import QuantConnect.Data
 import QuantConnect.Brokerages
 import QuantConnect.Benchmarks
 import QuantConnect.Api
-import QuantConnect.API
 import QuantConnect
 import Python.Runtime
 import NodaTime
